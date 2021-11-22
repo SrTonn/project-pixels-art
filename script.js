@@ -2,6 +2,14 @@ const colorPalleteId = '#color-palette';
 const colorPalleteSize = 45;
 const pixelBoardId = '#pixel-board';
 
+function random() {
+  return Math.floor(Math.random() * 255 + 1);
+}
+
+function generateRandomColor() {
+  return `rgb(${random()}, ${random()}, ${random()})`;
+}
+
 function createPalette(className, bgColor, size) {
   const parent = document.querySelector(colorPalleteId);
   const color = document.createElement('div');
@@ -20,9 +28,9 @@ function createPalette(className, bgColor, size) {
   parent.appendChild(color);
 }
 createPalette('color selected', 'black', colorPalleteSize);
-createPalette('color', 'green', colorPalleteSize);
-createPalette('color', 'yellow', colorPalleteSize);
-createPalette('color', 'blue', colorPalleteSize);
+createPalette('color', generateRandomColor(), colorPalleteSize);
+createPalette('color', generateRandomColor(), colorPalleteSize);
+createPalette('color', generateRandomColor(), colorPalleteSize);
 
 function createPixel(className, parentName, widthSize = 200) {
   const pixelBoard = document.querySelector(parentName);
@@ -79,7 +87,6 @@ document.querySelector('#generate-board').addEventListener('click', () => {
   if (inputValue !== '' && inputValue < 5) inputValue = 5;
   if (inputValue > 50) inputValue = 50;
   if (inputValue !== '') {
-    console.log('entrou');
     generateBoard(inputValue);
   } else {
     alert('Board inválido!');

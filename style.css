@@ -1,2 +1,22 @@
-/* iniciando o projeto. VAMOS COM TUDO 🚀 */
+.color {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+}
 
+.color:nth-child( 1 ) {
+  background-color: green;
+}
+
+.color:nth-child( 2 ) {
+  background-color: yellow;
+}
+
+.color:nth-child( 3 ) {
+  background-color: blue;
+}
+
+.color:nth-child( 4 ) {
+  background-color: grey;
+}

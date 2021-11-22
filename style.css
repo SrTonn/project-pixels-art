@@ -24,3 +24,10 @@
 .color:nth-child( 5 ) {
   background-color: grey;
 }
+
+.pixel {
+  width: 25px;
+  height: 25px;
+  background-color: white;
+  display: inline-block;
+}

@@ -12,10 +12,6 @@
   border: 1px solid black;
 }
 
-/* #pixel-board {
-  max-width: 200px;
-} */
-
 .color {
   cursor: pointer;
 }

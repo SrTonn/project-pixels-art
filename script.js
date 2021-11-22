@@ -54,3 +54,10 @@ document.querySelectorAll('.pixel').forEach((pixel) => {
     element.style.backgroundColor = lastSelected.style.backgroundColor;
   });
 });
+
+document.querySelector('#clear-board').addEventListener('click', () => {
+  document.querySelectorAll('.pixel').forEach((pixel) => {
+    const element = pixel;
+    element.style.backgroundColor = 'white';
+  });
+});

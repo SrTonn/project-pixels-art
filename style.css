@@ -40,3 +40,11 @@
 #pixel-board {
   max-width: 210px;
 }
+
+#color-palette {
+  cursor: pointer;
+}
+
+.selected {
+  box-shadow: 10px 5px 5px rgba(49, 49, 49, 0.4);
+}

@@ -47,3 +47,10 @@ document.querySelector(colorPalleteId).addEventListener('click', (event) => {
     lastSelected = element;
   }
 });
+
+document.querySelectorAll('.pixel').forEach((pixel) => {
+  pixel.addEventListener('click', (event) => {
+    const element = event.target;
+    element.style.backgroundColor = lastSelected.style.backgroundColor;
+  });
+});

@@ -3,33 +3,6 @@
   margin: 0;
 }
 
-.color {
-  display: inline-block;
-  width: 50px;
-  height: 50px;
-  border: 1px solid black;
-}
-
-.color:nth-child( 1 ) {
-  background-color: black;
-}
-
-.color:nth-child( 2 ) {
-  background-color: green;
-}
-
-.color:nth-child( 3 ) {
-  background-color: yellow;
-}
-
-.color:nth-child( 4 ) {
-  background-color: blue;
-}
-
-.color:nth-child( 5 ) {
-  background-color: grey;
-}
-
 .pixel {
   width: 25px;
   height: 25px;
@@ -41,7 +14,7 @@
   max-width: 210px;
 }
 
-#color-palette {
+.color {
   cursor: pointer;
 }
 

@@ -1,5 +1,6 @@
 const colorPalleteId = '#color-palette';
 const colorPalleteSize = 45;
+const pixelBoardId = '#pixel-board';
 
 function createPalette(className, bgColor, size) {
   const parent = document.querySelector(colorPalleteId);
@@ -23,16 +24,17 @@ createPalette('color', 'green', colorPalleteSize);
 createPalette('color', 'yellow', colorPalleteSize);
 createPalette('color', 'blue', colorPalleteSize);
 
-function createPixel(className, parentName) {
+function createPixel(className, parentName, widthSize = 200) {
   const pixelBoard = document.querySelector(parentName);
   const singleBoxPixel = document.createElement('div');
   singleBoxPixel.className = className;
+  pixelBoard.style.width = `${widthSize}px`;
 
   pixelBoard.appendChild(singleBoxPixel);
 }
 
 for (let i = 0; i < 25; i += 1) {
-  createPixel('pixel', '#pixel-board');
+  createPixel('pixel', pixelBoardId);
 }
 
 let lastSelected = document.querySelector(colorPalleteId).firstElementChild;
@@ -57,4 +59,26 @@ document.querySelector('#clear-board').addEventListener('click', () => {
     const element = pixel;
     element.style.backgroundColor = 'white';
   });
+});
+
+function resetBoard() {
+  const board = document.querySelector(pixelBoardId);
+  board.innerHTML = '';
+}
+
+function generateBoard(boardSize) {
+  resetBoard();
+  const widthSize = boardSize * 40;
+  for (let i = 0; i < boardSize * boardSize; i += 1) {
+    createPixel('pixel', pixelBoardId, widthSize);
+  }
+}
+
+document.querySelector('#generate-board').addEventListener('click', () => {
+  const inputValue = document.querySelector('#board-size').value;
+  if (inputValue !== '' && inputValue >= 5 && inputValue <= 50) {
+    generateBoard(inputValue);
+  } else {
+    alert('Board inválido!');
+  }
 });

@@ -41,11 +41,21 @@ function createPixel(className, parentName, widthSize = 200) {
   pixelBoard.appendChild(singleBoxPixel);
 }
 
+function addEventInPixels() {
+  document.querySelectorAll('.pixel').forEach((pixel) => {
+    pixel.addEventListener('click', (event) => {
+      const lastSelected = document.querySelector('.selected');
+      const element = event.target;
+      element.style.backgroundColor = lastSelected.style.backgroundColor;
+    });
+  });
+}
+
 for (let i = 0; i < 25; i += 1) {
   createPixel('pixel', pixelBoardId);
 }
+addEventInPixels();
 
-let lastSelected = document.querySelector(colorPalleteId).firstElementChild;
 document.querySelector(colorPalleteId).addEventListener('click', (event) => {
   const element = event.target;
   if (element.classList.contains('color')) {
@@ -53,13 +63,6 @@ document.querySelector(colorPalleteId).addEventListener('click', (event) => {
     lastSelected.classList.toggle('selected');
     lastSelected = element;
   }
-});
-
-document.querySelectorAll('.pixel').forEach((pixel) => {
-  pixel.addEventListener('click', (event) => {
-    const element = event.target;
-    element.style.backgroundColor = lastSelected.style.backgroundColor;
-  });
 });
 
 document.querySelector('#clear-board').addEventListener('click', () => {
@@ -80,6 +83,7 @@ function generateBoard(boardSize) {
   for (let i = 0; i < boardSize * boardSize; i += 1) {
     createPixel('pixel', pixelBoardId, widthSize);
   }
+  addEventInPixels();
 }
 
 document.querySelector('#generate-board').addEventListener('click', () => {

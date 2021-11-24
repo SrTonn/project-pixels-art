@@ -32,7 +32,7 @@ createPalette('color', generateRandomColor(), colorPalleteSize);
 createPalette('color', generateRandomColor(), colorPalleteSize);
 createPalette('color', generateRandomColor(), colorPalleteSize);
 
-function createPixel(className, parentName, widthSize = 200) {
+function createPixel(className, parentName, widthSize = 204) {
   const pixelBoard = document.querySelector(parentName);
   const singleBoxPixel = document.createElement('div');
   singleBoxPixel.className = className;
@@ -57,11 +57,11 @@ for (let i = 0; i < 25; i += 1) {
 addEventInPixels();
 
 document.querySelector(colorPalleteId).addEventListener('click', (event) => {
+  const lastSelected = document.querySelector('.selected');
   const element = event.target;
   if (element.classList.contains('color')) {
     element.classList.toggle('selected');
     lastSelected.classList.toggle('selected');
-    lastSelected = element;
   }
 });
 
@@ -79,7 +79,7 @@ function resetBoard() {
 
 function generateBoard(boardSize) {
   resetBoard();
-  const widthSize = boardSize * 40;
+  const widthSize = boardSize * 40 + 4;
   for (let i = 0; i < boardSize * boardSize; i += 1) {
     createPixel('pixel', pixelBoardId, widthSize);
   }
